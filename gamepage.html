@@ -4,15 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>Who said it?</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="gamepage"></div>
+    <div class="gamepage">
+      <div class="top-container">
+        <p class="insert-quote">
+          <!-- "Greater good?’ I am your wife! I’m the greatest good you’re ever
+          gonna get!" -->
+        </p>
+      </div>
+      <div class="bottom-container"></div>
+      <button onclick="randomQuote(quotes)" class="btn">
+        New quote
+      </button>
     </div>
 
-    <script src="./game.js"></script>
     <script src="./data.js"></script>
     <script src="./main.js"></script>
   </body>

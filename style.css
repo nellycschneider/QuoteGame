@@ -11,6 +11,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Lato", sans-serif;
 }
 
 .homepage {
@@ -45,13 +46,11 @@ body {
   margin: 0;
 }
 
-.homepage .btn {
+.btn {
   border-radius: 5px;
-  /* background-color: white; */
-  color: black;
   border: 2px solid #e7e7e7;
   color: white;
-  padding: 16px 32px;
+  padding: 15px 30px;
   text-align: center;
   display: inline-block;
   font-size: 16px;
@@ -85,4 +84,41 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.top-container {
+  background-color: rgba(62, 60, 60, 0.6);
+  width: 50vw;
+  height: 40vh;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.bottom-container {
+  background-color: rgba(62, 60, 60, 0.6);
+  width: 50vw;
+  height: 40vh;
+  border-radius: 8px;
+}
+
+.insert-quote {
+  font-size: 40px;
+  text-align: center;
+  margin: 25px;
+}
+
+.bottom-container button {
+  border-radius: 5px;
+  border: 2px solid #e7e7e7;
+  color: darkgrey;
+  padding: 15px 30px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px;
+  transition-duration: 0.4s;
+  cursor: pointer;
 }
