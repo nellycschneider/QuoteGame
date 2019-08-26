@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Cinzel:400,700&display=swap");
+
+/* 
+font-family: 'Lato', sans-serif;
+font-family: 'Cinzel', serif;
+
+*/
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.homepage {
+  background: linear-gradient(rgba(62, 60, 60, 0.4), rgba(62, 60, 60, 0.4)),
+    url("https://images.unsplash.com/photo-1452451312475-5055e48f74cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80");
+  /* background-image: url("https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"); */
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage h1 {
+  font-family: "Cinzel", serif;
+  text-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.2);
+  color: white;
+  font-size: 100px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.homepage p {
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  margin: 0;
+}
+
+.homepage .btn {
+  border-radius: 5px;
+  /* background-color: white; */
+  color: black;
+  border: 2px solid #e7e7e7;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 25px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background: none;
+}
+
+.btn:hover {
+  background-color: #e7e7e7;
+}
+
+.btn a:hover {
+  color: darkgray;
+}
+
+.btn a {
+  text-decoration: none;
+  color: white;
+}
+
+.gamepage {
+  background: linear-gradient(rgba(62, 60, 60, 0.4), rgba(62, 60, 60, 0.4)),
+    url("https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
