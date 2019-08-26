@@ -3,11 +3,12 @@ let quotes = [
     quote:
       "Greater good?’ I am your wife! I’m the greatest good you’re ever gonna get!",
     answers: [
-      "Fiona from Shrek",
+      "Fiona",
       "Marge Simpson",
       "Maude Flanders",
       "Frozones' wife",
-      "Cinderella"
+      "Cinderella",
+      "Khloe Kardashian"
     ],
     correct: "Frozones' wife"
   },
@@ -19,7 +20,8 @@ let quotes = [
       "Mini Me",
       "Al Capone",
       "Dr. Evil",
-      "Austin Powers"
+      "Austin Powers",
+      "Darth Vader"
     ],
     correct: "Dr. Evil"
   },
@@ -31,7 +33,8 @@ let quotes = [
       "Alan Garner",
       "Zach Galifianakis",
       "Homer Simpson",
-      "Charlie Sheen"
+      "Charlie Sheen",
+      "JD"
     ],
     correct: "Alan Garner"
   },
@@ -59,16 +62,48 @@ let quotes = [
   }
 ];
 
+let counter = 0;
+
 function randomQuote(quoteArr) {
-  let randomQuoteIndex = Math.floor(Math.random() * quotes.length);
+  //   console.log("called");
+  let randomQuoteIndex = Math.floor(Math.random() * quoteArr.length);
 
   document.querySelector(
     ".insert-quote"
   ).innerText = `"${quoteArr[randomQuoteIndex].quote}"`;
 
-  document.querySelector(
-    ".bottom-container"
-  ).innerHTML = `<button> ${quoteArr[randomQuoteIndex].answers[randomQuoteIndex]} </button>`;
+  document.querySelector(".bottom-container").innerHTML = quoteArr[
+    randomQuoteIndex
+  ].answers
+    .map(answer => `<button class='answer'> ${answer} </button>`)
+    .join("");
+
+  document.querySelectorAll(".answer").forEach(answerButton => {
+    answerButton.onclick = () => {
+      if (answerButton.innerText === quoteArr[randomQuoteIndex].correct) {
+        // console.log("true");
+        quoteArr.splice(randomQuoteIndex, 1);
+        counter += 1;
+        if (!quoteArr.length) {
+          document.getElementById(
+            "wrapper"
+          ).innerHTML = `<div class="wrapper"><p>You scored ${counter} out of ${quotes.length} points.</p></div>`;
+          //   console.log("ende");
+        } else {
+          randomQuote(quoteArr);
+        }
+      } else {
+        // console.log("nope");
+        if (!quoteArr.length) {
+          document.getElementById(
+            "wrapper"
+          ).innerHTML = `<div class="wrapper"><p>You scored ${counter} out of ${quotes.length} points.</p></div>`;
+          //   console.log("ende");
+        } else randomQuote(quoteArr);
+      }
+    };
+  });
 }
 
-randomQuote(quotes);
+let arrayCopy = [...quotes];
+randomQuote(arrayCopy);
