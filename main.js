@@ -59,11 +59,21 @@ let quotes = [
       "Freddy Krueger"
     ],
     correct: "Elon Musk"
+  },
+  {
+    quote: "Keep your friends close, but your enemies closer.",
+    answers: [
+      "Hannibal Lecter",
+      "The Joker",
+      "The Godfather",
+      "Blackbeard",
+      "Dr. Evil"
+    ],
+    correct: "The Godfather"
   }
 ];
 
 let counter = 0;
-// let remaining = quotes.length;
 
 function randomQuote(quoteArr) {
   //   console.log("called");
@@ -91,11 +101,12 @@ function randomQuote(quoteArr) {
         ).innerHTML = `<div id="remaining-quotes"><p>Remaining quotes: ${arrayCopy.length}/${quotes.length}</p></div>`;
 
         if (!quoteArr.length) {
-          document.getElementById(
-            "wrapper"
-          ).innerHTML = `<div class="wrapper"><p>You scored ${counter} out of ${quotes.length} points.</p></div>`;
+          scoreGifs(quotes);
+          // document.getElementById(
+          //   "scoreboard"
+          // ).innerHTML = `<div class="wrapper"><p>You scored ${counter} out of ${quotes.length} points.</p></div>`;
+
           document.getElementById("remaining-quotes").innerHTML = ``;
-          //   console.log("ende");
         } else {
           randomQuote(quoteArr);
         }
@@ -106,9 +117,10 @@ function randomQuote(quoteArr) {
         ).innerHTML = `<div id="remaining-quotes"><p>Remaining quotes: ${arrayCopy.length}/${quotes.length}</p></div>`;
         // console.log("nope");
         if (!quoteArr.length) {
-          document.getElementById(
-            "wrapper"
-          ).innerHTML = `<div class="wrapper"><p>You scored ${counter} out of ${quotes.length} points.</p></div>`;
+          scoreGifs(quotes);
+          // document.getElementById(
+          //   "scoreboard"
+          // ).innerHTML = `<div class="wrapper"><p>You scored ${counter} out of ${quotes.length} points.</p></div>`;
 
           document.getElementById("remaining-quotes").innerHTML = ``;
           //   console.log("ende");
@@ -120,3 +132,27 @@ function randomQuote(quoteArr) {
 
 let arrayCopy = [...quotes];
 randomQuote(arrayCopy);
+
+function scoreGifs(quoteArr) {
+  if (counter === 0) {
+    document.getElementById(
+      "scoreboard"
+    ).innerHTML = `<div class="wrapper"><p>You scored ${counter} out of ${quotes.length} points. Better luck next time! </p><img src="https://media1.giphy.com/media/mBjW9bfJeLLwu6Fhyl/giphy.gif"></div>`;
+  } else if (counter <= quoteArr.length / 3) {
+    document.getElementById(
+      "scoreboard"
+    ).innerHTML = `<div class="wrapper"><p>You scored ${counter} out of ${quotes.length} points. Come on..</p><img src="https://media1.giphy.com/media/26xBKqeFFspRZjDTW/giphy.gif"></div>`;
+  } else if (counter >= quoteArr.length / 2) {
+    document.getElementById(
+      "scoreboard"
+    ).innerHTML = `<div class="wrapper"><p>You scored ${counter} out of ${quotes.length} points. Not bad, not bad!</p><img src="https://media0.giphy.com/media/jedneOuAEkcgg/giphy.gif"></div>`;
+  } else if (counter === quoteArr.length) {
+    document.getElementById(
+      "scoreboard"
+    ).innerHTML = `<div class="wrapper"><p>You scored ${counter} out of ${quotes.length} points. Wow, you're a real pro!</p><img src="http://www.reactiongifs.com/r/2013/10/very-nice.gif"></div>`;
+  } else {
+    document.getElementById(
+      "scoreboard"
+    ).innerHTML = `<div class="wrapper"><p>You scored ${counter} out of ${quotes.length} points. You can do better.. but that was </p><img src="https://media2.giphy.com/media/gMfaZ6EXLjBPq/giphy.gif"></div>`;
+  }
+}
