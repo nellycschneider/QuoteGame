@@ -16,8 +16,6 @@ body {
 .homepage {
   background: linear-gradient(rgba(62, 60, 60, 0.4), rgba(62, 60, 60, 0.4)),
     url("https://images.unsplash.com/photo-1452451312475-5055e48f74cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80");
-  /* background-image: url("https://images.unsplash.com/photo-1457369804613-52c61a468e7d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80"); */
-  /* background-repeat: no-repeat; */
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -29,7 +27,7 @@ body {
 
 .homepage h1 {
   font-family: "Cinzel", serif;
-  text-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.2);
+  text-shadow: 0.5px 0.5px 60px black;
   color: white;
   font-size: 100px;
   font-weight: 700;
@@ -47,17 +45,18 @@ body {
 
 .btn {
   border-radius: 5px;
-  border: 2px solid #e7e7e7;
+  border: 2px solid white;
   color: white;
   padding: 15px 30px;
   text-align: center;
   display: inline-block;
-  font-size: 16px;
+  font-size: 20px;
   margin: 25px;
   -webkit-transition-duration: 0.4s;
   transition-duration: 0.4s;
   cursor: pointer;
   background: none;
+  width: 200px;
 }
 
 .btn:hover {
@@ -71,6 +70,27 @@ body {
 .btn a {
   text-decoration: none;
   color: white;
+}
+
+.answer-btn {
+  border-radius: 5px;
+  border: 2px solid white;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  margin: 20px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background: none;
+  width: 25%;
+}
+
+.answer-btn:hover {
+  background-color: darkgoldenrod;
+  color: lightgoldenrodyellow;
 }
 
 .gamepage {
@@ -102,44 +122,31 @@ body {
   height: 25vh;
   border-radius: 8px;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
 }
 
 .insert-quote {
-  font-size: 40px;
+  font-size: 50px;
   text-align: center;
   margin: 25px;
-}
-
-.bottom-container button {
-  border-radius: 5px;
-  border: 2px solid #e7e7e7;
-  color: darkgrey;
-  padding: 15px 30px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-  margin: 20px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-}
-
-.bottom-container button:hover {
-  background-color: lightgoldenrodyellow;
+  width: 80%;
+  /* font-family: "Cinzel", serif; */
+  text-shadow: 0.5px 0.5px 60px black;
 }
 
 .wrapper {
   background-color: rgba(62, 60, 60, 0.6);
   width: 50vw;
-  height: 40vh;
+  height: 50vh;
   border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
   flex-wrap: wrap;
+  overflow-y: scroll;
 }
 
 .wrapper p {
@@ -152,17 +159,82 @@ body {
   padding-top: 50px;
 }
 
+.wrapper h2 {
+  text-align: center;
+  font-size: 35px;
+  color: rgb(184, 184, 120);
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  width: 80%;
+  margin: 0;
+  padding: 30px 0;
+}
+
 #remaining-quotes p {
   text-align: center;
-  font-size: 30px;
+  font-size: 25px;
   color: white;
   font-family: "Lato", sans-serif;
+  /* font-family: "Cinzel", serif; */
   font-weight: 400;
   margin: 10px;
+  text-shadow: 1px 1px 60px black;
 }
 
 img {
   width: 350px;
   height: 200px;
+  margin: 25px 150px;
+}
+
+#wrong-answers p {
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
   margin: 0;
+}
+
+.wrong-btn {
+  border-radius: 5px;
+  border: 2px solid white;
+  color: white;
+  padding: 15px 30px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  margin: 25px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background: none;
+  width: 200px;
+}
+
+.wrong-btn:hover {
+  background-color: lightcoral;
+}
+
+.try-again-btn:hover {
+  background-color: lightgreen;
+}
+
+.wrapper th {
+  text-align: center;
+  font-size: 30px;
+  color: lightgoldenrodyellow;
+  font-family: "Cinzel", serif;
+  font-weight: 400;
+  margin: 0;
+}
+
+.wrapper td {
+  text-align: center;
+  font-size: 25px;
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  padding: 20px 80px;
+  width: 60%;
 }
