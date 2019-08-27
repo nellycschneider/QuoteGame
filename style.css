@@ -4,7 +4,6 @@
 /* 
 font-family: 'Lato', sans-serif;
 font-family: 'Cinzel', serif;
-
 */
 
 body {
@@ -102,6 +101,10 @@ body {
   width: 50vw;
   height: 25vh;
   border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .insert-quote {
@@ -145,4 +148,13 @@ body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   margin: 0;
+}
+
+#remaining-quotes p {
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  margin: ;
 }

@@ -63,6 +63,7 @@ let quotes = [
 ];
 
 let counter = 0;
+// let remaining = quotes.length;
 
 function randomQuote(quoteArr) {
   //   console.log("called");
@@ -84,20 +85,32 @@ function randomQuote(quoteArr) {
         // console.log("true");
         quoteArr.splice(randomQuoteIndex, 1);
         counter += 1;
+
+        document.getElementById(
+          "remaining-quotes"
+        ).innerHTML = `<div id="remaining-quotes"><p>Remaining quotes: ${arrayCopy.length}/${quotes.length}</p></div>`;
+
         if (!quoteArr.length) {
           document.getElementById(
             "wrapper"
           ).innerHTML = `<div class="wrapper"><p>You scored ${counter} out of ${quotes.length} points.</p></div>`;
+          document.getElementById("remaining-quotes").innerHTML = ``;
           //   console.log("ende");
         } else {
           randomQuote(quoteArr);
         }
       } else {
+        quoteArr.splice(randomQuoteIndex, 1);
+        document.getElementById(
+          "remaining-quotes"
+        ).innerHTML = `<div id="remaining-quotes"><p>Remaining quotes: ${arrayCopy.length}/${quotes.length}</p></div>`;
         // console.log("nope");
         if (!quoteArr.length) {
           document.getElementById(
             "wrapper"
           ).innerHTML = `<div class="wrapper"><p>You scored ${counter} out of ${quotes.length} points.</p></div>`;
+
+          document.getElementById("remaining-quotes").innerHTML = ``;
           //   console.log("ende");
         } else randomQuote(quoteArr);
       }
