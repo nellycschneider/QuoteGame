@@ -73,14 +73,94 @@ let quotes = [
       "Eric Cartman"
     ],
     correct: "The Godfather"
+  },
+  {
+    quote: "Sub Saharan, can you have 150 child warriors here by 5:00pm?",
+    answers: [
+      "Will Smith",
+      "General Hopper",
+      "Bender",
+      "Admiral Aladeen",
+      "Jack Sparrow",
+      "S. Baron Cohen"
+    ],
+    correct: "Admiral Aladeen"
+  },
+  {
+    quote:
+      "Wikipedia is the best thing ever. Anyone in the world can write anything they want about any subject. So you know you are getting the best possible information.",
+    answers: [
+      "S. Baron Cohen",
+      "Dwight Schrute",
+      "Phil Dunphy",
+      "Michael Scott",
+      "Chandler Bing",
+      "Cosmo Kramer"
+    ],
+    correct: "Michael Scott"
+  },
+  {
+    quote:
+      "Before I do anything, I ask myself, 'Would an idiot do that?' And, if the answer is yes, I do not do that thing.",
+    answers: [
+      "Dwight Schrute",
+      "Sheldon Cooper",
+      "Michael Scott",
+      "Danny DeVito",
+      "Peter Parker",
+      "Butters Scotch"
+    ],
+    correct: "Dwight Schrute"
+  },
+  {
+    quote:
+      "That's it, dishonor! Dishonor on your whole family! Dishonor on you, dishonor on your cow!",
+    answers: [
+      "Spongebob",
+      "Mushu",
+      "Frodo Baggins",
+      "Eddie Murphy",
+      "Danny DeVito",
+      "Han Solo"
+    ],
+    correct: "Mushu"
+  },
+  {
+    quote:
+      "When life gives you lemonade, make lemons. Life will be all, ‘Whaaat?’",
+    answers: [
+      "Stewie Griffin",
+      "Michael Scott",
+      "Eric Cartman",
+      "Phil Dunphy",
+      "S. Baron Cohen",
+      "Peter Griffin"
+    ],
+    correct: "Phil Dunphy"
+  },
+  {
+    quote: "Cool, cool, cool, cool, cool. No doubt, no doubt, no doubt.",
+    answers: [
+      "Charles Boyle",
+      "Phil Dunphy",
+      "Jake Peralta",
+      "Stewie Griffin",
+      "Glenn Quagmire",
+      "Roger"
+    ],
+    correct: "Jake Peralta"
   }
 ];
 
 let counter = 0;
 let wrongAnswers = [];
+let count = 20;
+
+function resetTime() {
+  console.log(count);
+}
 
 function randomQuote(quoteArr) {
-  //   console.log("called");
   let randomQuoteIndex = Math.floor(Math.random() * quoteArr.length);
 
   document.querySelector(
@@ -90,7 +170,10 @@ function randomQuote(quoteArr) {
   document.querySelector(".bottom-container").innerHTML = quoteArr[
     randomQuoteIndex
   ].answers
-    .map(answer => `<button class='answer answer-btn'> ${answer} </button>`)
+    .map(
+      answer =>
+        `<button onclick='resetTime()' class='answer answer-btn'> ${answer} </button>`
+    )
     .join("");
 
   //Show full remaining quotes at beginning
@@ -103,14 +186,11 @@ function randomQuote(quoteArr) {
     answerButton.onclick = () => {
       if (answerButton.innerText === quoteArr[randomQuoteIndex].correct) {
         // console.log("true");
+
         quoteArr.splice(randomQuoteIndex, 1);
         counter += 1;
 
         remainingQuotes(quotes);
-
-        // document.getElementById(
-        //   "remaining-quotes"
-        // ).innerHTML = `<div id="remaining-quotes"><p>Remaining quotes: ${arrayCopy.length}/${quotes.length}</p></div>`;
 
         if (!quoteArr.length) {
           //Scoreboard with gifs
@@ -125,15 +205,12 @@ function randomQuote(quoteArr) {
           quote: quoteArr[randomQuoteIndex].quote,
           answer: quoteArr[randomQuoteIndex].correct
         });
-        console.log(wrongAnswers);
+
+        // newBackground();
 
         quoteArr.splice(randomQuoteIndex, 1);
 
         remainingQuotes(quotes);
-
-        // document.getElementById(
-        //   "remaining-quotes"
-        // ).innerHTML = `<div id="remaining-quotes"><p>Remaining quotes: ${arrayCopy.length}/${quotes.length}</p></div>`;
 
         // console.log("nope");
         if (!quoteArr.length) {
@@ -151,6 +228,13 @@ function randomQuote(quoteArr) {
 
 let arrayCopy = [...quotes];
 randomQuote(arrayCopy);
+countdown(count);
+
+function remainingQuotes(arrayCopy) {
+  document.getElementById(
+    "remaining-quotes"
+  ).innerHTML = `<div id="remaining-quotes"><p>Remaining quotes: ${arrayCopy.length}/${quotes.length}</p></div>`;
+}
 
 function scoreGifs(quoteArr) {
   if (counter === 0) {
@@ -176,18 +260,11 @@ function scoreGifs(quoteArr) {
   }
 }
 
-function remainingQuotes(arrayCopy) {
-  document.getElementById(
-    "remaining-quotes"
-  ).innerHTML = `<div id="remaining-quotes"><p>Remaining quotes: ${arrayCopy.length}/${quotes.length}</p></div>`;
-}
-
-function wrongAnswersArr(wrongAnswersArr) {
+function wrongAnswersArr() {
   document.getElementById("scoreboard").innerHTML = ``;
 
   let result = `
   <div class="wrapper">
-  <h2>Here are the ones you got wrong:</h2>
 <table>
   <tr>
     <th>Quote:</th>
@@ -207,3 +284,31 @@ function wrongAnswersArr(wrongAnswersArr) {
     </div>`;
   document.getElementById("wrong-answers").innerHTML += result;
 }
+
+//Countdown
+
+function countdown() {
+  const id = setInterval(function() {
+    if (count >= 10) {
+      time.innerText = `00:${count}`;
+    } else if (count < 10) {
+      time.innerText = `00:0${count}`;
+    }
+    count--;
+    if (count === -1) {
+      clearInterval(id);
+      time.innerText = "";
+    }
+  }, 1000);
+}
+
+// function newBackground() {
+//   document.querySelector(".gamepage").style.backgroundImage = randomImage;
+// }
+
+// let backgroundImages = [
+//   "url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2251&q=80')",
+//   "url('https://images.unsplash.com/photo-1512149074996-e923ac45be6a?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80')"
+// ];
+
+// let randomImage = Math.floor(Math.random() * backgroundImages.length);
