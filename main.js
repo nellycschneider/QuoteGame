@@ -304,6 +304,29 @@ let quotes = [
 
 //////////////////////////////////////////////////////////////
 
+//Change background to random pic
+
+// let backgroundPictures = [
+//   "url('https://images.unsplash.com/photo-1452451312475-5055e48f74cb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80')",
+//   "url('https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80')",
+//   "url('https://images.unsplash.com/photo-1485095329183-d0797cdc5676?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80')",
+//   "url('https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80')"
+// ];
+
+// function randomPicture(pics) {
+//   let randomPicIndex = Math.floor(Math.random() * pics.length);
+//   return pics[randomPicIndex];
+// }
+
+// function changeBackgroundPicture() {
+//   let background = document.querySelector(".gamepage");
+//   background.style.backgroundImage = randomPicture(backgroundPictures);
+// }
+
+// setInterval(changeBackgroundPicture, 10000);
+
+/////////////////////////////////////////////////////////////////////////////
+
 let counter = 0;
 let wrongAnswers = [];
 
