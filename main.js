@@ -1,27 +1,23 @@
-// let ranInd = Math.floor(Math.random() * data.length);
-// randInd > data.length - 20 ? (randInd = 0) : (randInd = randInd);
-// let quotes = data.slice(randInd, 15);
-
 //change the name to data
 let quotes = [
-  {
-    quote:
-      "Greater good? I am your wife! I’m the greatest good you’re ever gonna get!",
-    answers: [
-      "Fiona",
-      "Marge Simpson",
-      "Maude Flanders",
-      "Frozones' wife",
-      "Cinderella",
-      "Kim Kardashian"
-    ],
-    correct: "Frozones' wife"
-  },
+  // {
+  //   quote:
+  //     "Greater good? I am your wife! I’m the greatest good you’re ever gonna get!",
+  //   answers: [
+  //     "Fiona",
+  //     "Marge Simpson",
+  //     "Maude Flanders",
+  //     "Frozones' wife",
+  //     "Cinderella",
+  //     "Kim Kardashian"
+  //   ],
+  //   correct: "Frozones' wife"
+  // },
   {
     quote:
       "We get the warhead and we hold the world ransom for… One million dollars!",
     answers: [
-      "Monty Python",
+      "King Arthur",
       "Will Ferrell",
       "Al Capone",
       "Dr. Evil",
@@ -42,18 +38,6 @@ let quotes = [
       "Deadpool"
     ],
     correct: "Alan Garner"
-  },
-  {
-    quote: "Gentlemen, I wash my hands of this weirdness.",
-    answers: [
-      "Jack Sparrow",
-      "Shakespeare",
-      "The Joker",
-      "Brucy Wayne",
-      "Mr. Burns",
-      "Stewie Griffin"
-    ],
-    correct: "Jack Sparrow"
   },
   {
     quote: "The fast way is to drop thermonuclear weapons over the poles.",
@@ -171,7 +155,7 @@ let quotes = [
   {
     quote: "Any dog under fifty pounds is a cat and cats are useless.",
     answers: [
-      "Archer",
+      "Sterling Archer",
       "Gina Linetti",
       "Captain Holt",
       "Dwight Schrute",
@@ -191,8 +175,134 @@ let quotes = [
       "Stan Marsh"
     ],
     correct: "Malory Archer"
+  },
+  {
+    quote: "I am the only gay in the village.",
+    answers: [
+      "Sterling Archer",
+      "Daffyd Thomas",
+      "King Arthur",
+      "Mr. Garrison",
+      "Lucius Best",
+      "Elle Woods"
+    ],
+    correct: "Daffyd Thomas"
+  },
+  {
+    quote:
+      "I’m about to do to you what Limp Bizkit did to music in the late ’90s.",
+    answers: [
+      "Stan Marsh",
+      "Mike Myers",
+      "Ron Burgundy",
+      "Deadpool",
+      "Eric Cartman",
+      "Will Ferrell"
+    ],
+    correct: "Deadpool"
+  },
+  {
+    quote:
+      "I'm wearing John Galliano but the socks are from K-Mart. As Saddam Hussein once said to me 'socks are socks - don't waste money'.",
+    answers: [
+      "Kevin Hart",
+      "Will Ferrell",
+      "Admiral Aladeen",
+      "Sterling Archer",
+      "Mr. Burns",
+      "Elle Woods"
+    ],
+    correct: "Admiral Aladeen"
+  },
+  {
+    quote:
+      "“In US and A, if you want to marry a girl, you cannot just go to her father’s house and swap her for 15 gallons of insecticide.”",
+    answers: [
+      "Deadpool",
+      "Borat",
+      "Will Ferrell",
+      "Austin Powers",
+      "Admiral Aladeen",
+      "Jake Peralta"
+    ],
+    correct: "Borat"
+  },
+  {
+    quote: "Hello, my name is ________. You killed my father. Prepare to die.",
+    answers: [
+      "Puss in Boots",
+      "Inigo Montoya",
+      "Deadpool",
+      "Bilbo Baggins",
+      "Jake Peralta",
+      "Sterling Archer"
+    ],
+    correct: "Inigo Montoya"
+  },
+  {
+    quote:
+      "Life moves pretty fast. If you don’t stop and look around once in a while, you could miss it.",
+    answers: [
+      "Shrek",
+      "Stan Marsh",
+      "Frodo Baggins",
+      "Bart Simpson",
+      "Ferris Bueller",
+      "Donkey"
+    ],
+    correct: "Ferris Bueller"
+  },
+  {
+    quote:
+      "I changed all my passwords to 'Incorrect.' So whenever I forget, it will tell me 'Your password is incorrect.'",
+    answers: [
+      "Michael Scott",
+      "Eddie Murphy",
+      "Borat",
+      "Fiona",
+      "Bart Simpson",
+      "Kim Kardashian"
+    ],
+    correct: "Michael Scott"
+  },
+  {
+    quote: "You're tearing me apart, Lisa!",
+    answers: [
+      "Johnny",
+      "Homer Simpson",
+      "Tommy Wiseau",
+      "Marge Simpson",
+      "Milhouse",
+      "Michael Scott"
+    ],
+    correct: "Johnny"
+  },
+  {
+    quote: "It’s bullshit, I did not hit her. I did nooot. Oh hi, Mark!",
+    answers: [
+      "Bart Simpson",
+      "Johnny",
+      "Kim Kardashian",
+      "Tommy Wiseau",
+      "Captain Holt",
+      "Jake Peralta"
+    ],
+    correct: "Johnny"
   }
 ];
+
+/////////////// Randomly selected quotes /////////////////////
+
+// let randInd = Math.floor(Math.random() * data.length);
+
+// if (randInd > data.length - 10) {
+//   randInd = 0;
+// } else {
+//   randInd = randInd + 10;
+// }
+// let quotes = data.slice(randInd, 10);
+
+//////////////////////////////////////////////////////////////
 
 let counter = 0;
 let wrongAnswers = [];
@@ -255,7 +365,6 @@ function randomQuote(quoteArr) {
 
 let arrayCopy = [...quotes];
 randomQuote(arrayCopy);
-countdown(count);
 
 function remainingQuotes(arrayCopy) {
   document.getElementById(
