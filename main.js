@@ -1,3 +1,8 @@
+// let ranInd = Math.floor(Math.random() * data.length);
+// randInd > data.length - 20 ? (randInd = 0) : (randInd = randInd);
+// let quotes = data.slice(randInd, 15);
+
+//change the name to data
 let quotes = [
   {
     quote:
@@ -149,16 +154,48 @@ let quotes = [
       "Roger"
     ],
     correct: "Jake Peralta"
+  },
+  {
+    quote:
+      "I once worked with a guy for three years and never learned his name. Best friend I ever had. We still never talk sometimes.",
+    answers: [
+      "Captain Holt",
+      "Dwight Schrute",
+      "Ron Swanson",
+      "Sheldon Cooper",
+      "Charlie Sheen",
+      "Tina Belcher"
+    ],
+    correct: "Ron Swanson"
+  },
+  {
+    quote: "Any dog under fifty pounds is a cat and cats are useless.",
+    answers: [
+      "Archer",
+      "Gina Linetti",
+      "Captain Holt",
+      "Dwight Schrute",
+      "Ron Swanson",
+      "H. Wolowitz"
+    ],
+    correct: "Ron Swanson"
+  },
+  {
+    quote: "That's how you get ants!",
+    answers: [
+      "Malory Archer",
+      "Joey Tribbiani",
+      "Deadpool",
+      "Sterling Archer",
+      "Homer Simpson",
+      "Stan Marsh"
+    ],
+    correct: "Malory Archer"
   }
 ];
 
 let counter = 0;
 let wrongAnswers = [];
-let count = 20;
-
-function resetTime() {
-  console.log(count);
-}
 
 function randomQuote(quoteArr) {
   let randomQuoteIndex = Math.floor(Math.random() * quoteArr.length);
@@ -170,10 +207,7 @@ function randomQuote(quoteArr) {
   document.querySelector(".bottom-container").innerHTML = quoteArr[
     randomQuoteIndex
   ].answers
-    .map(
-      answer =>
-        `<button onclick='resetTime()' class='answer answer-btn'> ${answer} </button>`
-    )
+    .map(answer => `<button class='answer answer-btn'> ${answer} </button>`)
     .join("");
 
   //Show full remaining quotes at beginning
@@ -185,8 +219,6 @@ function randomQuote(quoteArr) {
   document.querySelectorAll(".answer").forEach(answerButton => {
     answerButton.onclick = () => {
       if (answerButton.innerText === quoteArr[randomQuoteIndex].correct) {
-        // console.log("true");
-
         quoteArr.splice(randomQuoteIndex, 1);
         counter += 1;
 
@@ -206,20 +238,15 @@ function randomQuote(quoteArr) {
           answer: quoteArr[randomQuoteIndex].correct
         });
 
-        // newBackground();
-
         quoteArr.splice(randomQuoteIndex, 1);
 
         remainingQuotes(quotes);
 
-        // console.log("nope");
         if (!quoteArr.length) {
           //Scoreboard with gifs
           scoreGifs(quotes);
 
           document.getElementById("remaining-quotes").innerHTML = ``;
-
-          //   console.log("ende");
         } else randomQuote(quoteArr);
       }
     };
@@ -284,31 +311,3 @@ function wrongAnswersArr() {
     </div>`;
   document.getElementById("wrong-answers").innerHTML += result;
 }
-
-//Countdown
-
-function countdown() {
-  const id = setInterval(function() {
-    if (count >= 10) {
-      time.innerText = `00:${count}`;
-    } else if (count < 10) {
-      time.innerText = `00:0${count}`;
-    }
-    count--;
-    if (count === -1) {
-      clearInterval(id);
-      time.innerText = "";
-    }
-  }, 1000);
-}
-
-// function newBackground() {
-//   document.querySelector(".gamepage").style.backgroundImage = randomImage;
-// }
-
-// let backgroundImages = [
-//   "url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2251&q=80')",
-//   "url('https://images.unsplash.com/photo-1512149074996-e923ac45be6a?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80')"
-// ];
-
-// let randomImage = Math.floor(Math.random() * backgroundImages.length);
